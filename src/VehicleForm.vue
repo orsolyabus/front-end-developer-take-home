@@ -1,42 +1,31 @@
 <template>
-  <div id="app" class="container">
+  <form class="mt-4">
     <div class="row">
-      <div class="col-12 my-5 p-0">
-        <h1>Fleet Assets</h1>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Year" v-model="form.year">
       </div>
-      <Vehicles :vehicleList="vehicles"/>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Make" v-model="form.make">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Model" v-model="form.model">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Colour" v-model="form.colour">
+      </div>
+      <div class="col">
+        <button type="button" class="btn btn-primary mx-2" @click="create">Create</button>
+        <button type="button" class="btn btn-danger mx-2" @click="resetFrom">Reset</button>
+      </div>
     </div>
-    <VehicleForm/>
-  </div>
+  </form>
 </template>
 
 <script>
-import Vehicles from "./Vehicles.vue";
-import VehicleForm from "./VehicleForm.vue";
 export default {
-  name: "app",
-  components: {
-    Vehicles,
-    VehicleForm
-  },
+  name: "form",
   data() {
     return {
-      vehicles: {
-        1: {
-          year: "2018",
-          make: "Ford",
-          model: "Econoline",
-          colour: "White"
-        },
-
-        2: {
-          year: "2017",
-          make: "Mercedes",
-          model: "Sprinter",
-          colour: "Black"
-        }
-      },
-
       form: {
         year: "",
         make: "",
@@ -47,7 +36,6 @@ export default {
       errors: []
     };
   },
-
   methods: {
     resetFrom() {
       console.log("resetting form");
@@ -70,20 +58,7 @@ export default {
       } else {
         alert("vehicle needs " + this.errors.join(", "));
       }
-    },
-    handleDelete(id) {
-      this.$delete(this.vehicles, id);
     }
   }
 };
 </script>
-
-<style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-</style>
