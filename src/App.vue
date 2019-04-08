@@ -6,7 +6,7 @@
       </div>
       <Vehicles :vehicleList="vehicles" @remove="handleDelete"/>
     </div>
-    <VehicleForm/>
+    <VehicleForm @addVehicle="create"/>
   </div>
 </template>
 
@@ -36,40 +36,14 @@ export default {
           colour: "Black"
         }
       },
-
-      form: {
-        year: "",
-        make: "",
-        model: "",
-        colour: ""
-      },
-
-      errors: []
     };
   },
 
   methods: {
-    resetFrom() {
-      console.log("resetting form");
-      this.form.year = null;
-      this.form.make = null;
-      this.form.model = null;
-      this.form.colour = null;
-    },
-    create() {
+  
+    create(formFields) {
       const index = Object.keys(this.vehicles).length + 1;
-      this.errors = [];
-      const formFields = { ...this.form };
-      if (!formFields.year) this.errors.push("year");
-      if (!formFields.make) this.errors.push("make");
-      if (!formFields.model) this.errors.push("model");
-      if (!formFields.colour) this.errors.push("colour");
-      if (!this.errors.length) {
         this.$set(this.vehicles, index, formFields);
-        this.resetFrom();
-      } else {
-        alert("vehicle needs " + this.errors.join(", "));
-      }
     },
     handleDelete(index) {
       this.$delete(this.vehicles, index);

@@ -24,13 +24,14 @@
 <script>
 export default {
   name: "vehicleForm",
+
   data() {
     return {
       form: {
         year: "",
         make: "",
         model: "",
-        colour: ""
+        colour: "",
       },
 
       errors: []
@@ -45,7 +46,6 @@ export default {
       this.form.colour = null;
     },
     create() {
-      const index = Object.keys(this.vehicles).length + 1;
       this.errors = [];
       const formFields = { ...this.form };
       if (!formFields.year) this.errors.push("year");
@@ -53,7 +53,7 @@ export default {
       if (!formFields.model) this.errors.push("model");
       if (!formFields.colour) this.errors.push("colour");
       if (!this.errors.length) {
-        this.$set(this.vehicles, index, formFields);
+        this.$emit("addVehicle", formFields);
         this.resetFrom();
       } else {
         alert("vehicle needs " + this.errors.join(", "));
