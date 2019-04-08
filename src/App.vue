@@ -98,8 +98,7 @@ export default {
       this.form.colour = null;
     },
     create() {
-      // TODO: Dynamically increment the Index based on the number of vehicles
-      const index = Object.keys(this.vehicles).length+1;
+      const index = Object.keys(this.vehicles).length + 1;
       this.errors = [];
       const formFields = { ...this.form };
       if (!formFields.year) this.errors.push("year");
@@ -108,11 +107,10 @@ export default {
       if (!formFields.colour) this.errors.push("colour");
       if (!this.errors.length) {
         this.$set(this.vehicles, index, formFields);
+        this.resetFrom();
       } else {
         alert("vehicle needs " + this.errors.join(", "));
       }
-
-      // TODO: Reset the form
     }
   }
 };

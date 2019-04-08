@@ -4,7 +4,7 @@
   
 <!-- * Dynamically increment the index for the vehicle before adding it to the vehicles object -->
   
-* Clear the form after the vehicle has been added to the vehicles object
+<!-- * Clear the form after the vehicle has been added to the vehicles object -->
   
 * Implement delete vehicle functionality for the DELETE button
 
