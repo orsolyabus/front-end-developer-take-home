@@ -23,8 +23,11 @@
               <td>{{ vehicle.model }}</td>
               <td>{{ vehicle.colour }}</td>
               <td>
-                <!-- TODO: Implement deleting the specified vehicle -->
-                <button type="button" class="btn btn-sm btn-outline-danger mx-2">Delete</button>
+                <button
+                  type="button"
+                  class="btn btn-sm btn-outline-danger mx-2"
+                  @click="handleDelete(index)"
+                >Delete</button>
               </td>
             </tr>
           </tbody>
@@ -111,6 +114,9 @@ export default {
       } else {
         alert("vehicle needs " + this.errors.join(", "));
       }
+    },
+    handleDelete(id) {
+      this.$delete(this.vehicles, id);
     }
   }
 };

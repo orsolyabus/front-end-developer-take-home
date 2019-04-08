@@ -6,6 +6,6 @@
   
 <!-- * Clear the form after the vehicle has been added to the vehicles object -->
   
-* Implement delete vehicle functionality for the DELETE button
+<!-- * Implement delete vehicle functionality for the DELETE button -->
 
 * Refactor the App so that two new components handle the table listing the vehicles, and the form for adding a new vehicle
