@@ -11,7 +11,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(vehicle, index) in vehicles" :key="index">
+        <tr v-for="(vehicle, index) in vehicleList" :key="index">
           <td>{{ vehicle.year }}</td>
           <td>{{ vehicle.make }}</td>
           <td>{{ vehicle.model }}</td>
@@ -32,10 +32,13 @@
 <script>
 export default {
   name: "vehicles",
-  props: vehicleList,
+  props: {vehicleList:{
+      type: Object,
+      required: true
+  }},
   methods: {
     handleDelete(id) {
-      this.$delete(this.vehiclesList, id);
+      this.$emit('remove', id);
     }
   }
 };

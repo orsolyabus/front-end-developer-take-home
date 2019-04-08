@@ -4,7 +4,7 @@
       <div class="col-12 my-5 p-0">
         <h1>Fleet Assets</h1>
       </div>
-      <Vehicles :vehicleList="vehicles"/>
+      <Vehicles :vehicleList="vehicles" @remove="handleDelete"/>
     </div>
     <VehicleForm/>
   </div>
@@ -71,8 +71,8 @@ export default {
         alert("vehicle needs " + this.errors.join(", "));
       }
     },
-    handleDelete(id) {
-      this.$delete(this.vehicles, id);
+    handleDelete(index) {
+      this.$delete(this.vehicles, index);
     }
   }
 };

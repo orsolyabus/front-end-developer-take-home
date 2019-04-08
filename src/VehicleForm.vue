@@ -23,7 +23,7 @@
 
 <script>
 export default {
-  name: "form",
+  name: "vehicleForm",
   data() {
     return {
       form: {
