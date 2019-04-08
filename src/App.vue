@@ -99,7 +99,7 @@ export default {
     },
     create() {
       // TODO: Dynamically increment the Index based on the number of vehicles
-      const index = 3;
+      const index = Object.keys(this.vehicles).length+1;
       this.errors = [];
       const formFields = { ...this.form };
       if (!formFields.year) this.errors.push("year");
