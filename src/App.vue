@@ -49,8 +49,7 @@
         </div>
         <div class="col">
           <button type="button" class="btn btn-primary mx-2" @click="create">Create</button>
-          <!-- TODO: Implement reset form functionality -->
-          <button type="button" class="btn btn-danger mx-2">Reset</button>
+          <button type="button" class="btn btn-danger mx-2" @click="resetFrom">Reset</button>
         </div>
       </div>
     </form>
@@ -89,6 +88,13 @@ export default {
   },
 
   methods: {
+    resetFrom() {
+      console.log("resetting form");
+      this.form.year = null;
+      this.form.make = null;
+      this.form.model = null;
+      this.form.colour = null;
+    },
     create() {
       // TODO: Dynamically increment the Index based on the number of vehicles
       const index = 3;
@@ -96,7 +102,6 @@ export default {
       const formFields = { ...this.form };
 
       this.$set(this.vehicles, index, formFields);
-
       // TODO: Reset the form
     }
   }
