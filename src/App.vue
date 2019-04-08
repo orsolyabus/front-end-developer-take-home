@@ -83,7 +83,9 @@ export default {
         make: "",
         model: "",
         colour: ""
-      }
+      },
+
+      errors: []
     };
   },
 
@@ -98,10 +100,18 @@ export default {
     create() {
       // TODO: Dynamically increment the Index based on the number of vehicles
       const index = 3;
-
+      this.errors = [];
       const formFields = { ...this.form };
+      if (!formFields.year) this.errors.push("year");
+      if (!formFields.make) this.errors.push("make");
+      if (!formFields.model) this.errors.push("model");
+      if (!formFields.colour) this.errors.push("colour");
+      if (!this.errors.length) {
+        this.$set(this.vehicles, index, formFields);
+      } else {
+        alert("vehicle needs " + this.errors.join(", "));
+      }
 
-      this.$set(this.vehicles, index, formFields);
       // TODO: Reset the form
     }
   }

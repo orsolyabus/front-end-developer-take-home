@@ -1,6 +1,6 @@
-* Implement the RESET button functionality so the form is cleared when clicked
+<!-- * Implement the RESET button functionality so the form is cleared when clicked -->
   
-* Show an alert if a form field is not present and prevent creating the vehicle
+<!-- * Show an alert if a form field is not present and prevent creating the vehicle -->
   
 * Dynamically increment the index for the vehicle before adding it to the vehicles object
   
